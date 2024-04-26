@@ -1,7 +1,7 @@
 export enum MealType{
-    Vegetarian,
-    Vegan,
-    Dairy_Free,
-    Halal,
-    Kosher
+    Vegetarian="Vegetarian",
+    Vegan="Vegan",
+    Dairy_Free="Dairy_Free",
+    Halal="Halal",
+    Kosher="Kosher",
 }
