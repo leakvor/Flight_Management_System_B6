@@ -1,6 +1,9 @@
-class FrequenFlyer{
-    private membershipNumber:string
-    constructor(membershipNumber:string){
-        this.membershipNumber = membershipNumber;
+export class FrequenFlyer {
+    private memberShipNumber: number;
+    constructor(memberShipNumber: number){
+        this.memberShipNumber = memberShipNumber;
+    }
+    getMemberShipNumber(){
+
     }
 }
