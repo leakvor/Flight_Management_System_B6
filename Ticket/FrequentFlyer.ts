@@ -4,6 +4,7 @@ export class FrequenFlyer {
         this.memberShipNumber = memberShipNumber;
     }
     getMemberShipNumber(){
-
+        return this.memberShipNumber;
+    
     }
 }
