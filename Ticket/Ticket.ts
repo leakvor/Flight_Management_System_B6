@@ -1,11 +1,11 @@
 import { Booking } from "./Booking";
 import { Gender } from "../Enums/Gender";
+import { SeatType } from "../Enums/SeatType";
 
-
-
-class BoardingPass extends Booking {
-    private referencesNumber: string;
-    constructor(firstName: string,
+export class Ticket extends Booking {
+    private seatType: SeatType[] = [];
+    constructor(
+        firstName: string,
         lastName: string,
         hight: Number,
         weight: Number,
@@ -13,9 +13,15 @@ class BoardingPass extends Booking {
         email: string,
         bookingReference: string,
         amountOfTicket: Number,
-        referencesNumber: string
+        seatType: SeatType[]
     ) {
         super(firstName, lastName, hight, weight, gender, email, bookingReference, amountOfTicket);
-        this.referencesNumber = referencesNumber;
+        this.seatType = seatType;
+    }
+    getFareBasis() {
+        
+    }
+    getSeatType() {
+
     }
 }

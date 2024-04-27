@@ -2,32 +2,26 @@ import { Flight } from "../Flight/Flight";
 import { MealType } from "../Enums/MealType";
 import { Passenger } from "../Peoples/Passenger";
 import { SeatType } from "../Enums/SeatType";
-export class BookingReferenceNumber{
-    passenger:Passenger;
-    flights:Flight[];
-    meals:MealType[];
-    seat:SeatType
-    constructor(passenger:Passenger,flights:Flight[],meals:MealType[],seat:SeatType){
-        this.passenger = passenger;
-        this.flights = flights;
-        this.meals = meals;
-        this.seat=seat
+import { Booking } from "./Booking";
+
+export class BookingReferenceNumber {
+    private booking: Booking;
+
+    constructor(booking: Booking) {
+        this.booking = booking;
     }
 
-    addPassenger(passenger:Passenger){
-        this.passenger
-    }
-    addFlight(flight:Flight){
-        this.flights.push(flight)
-    }
-    addMeal(meal:MealType){
-        this.meals.push(meal);
-    }
+    getBookingDetails(): void {
+        const amountOfTicket = this.booking.getAmountOfTicket();
+        const seatType = this.booking.getSeatType();
+        const mealTypes = this.booking.getMealTypes();
+        const flights = this.booking.getFlights();
+        const passenger = this.booking.getPassenger();
 
-    getDetailInformation(): void {
-        console.log(`Passengger: ${this.passenger}`);
-        console.log(`Seat Type: ${this.seat}`);
-        console.log(`Meal Types: ${this.meals.join(', ')}`);
-        console.log(`Flights: ${this.flights.join(', ')}`);
+        console.log(`Amount of Ticket: ${amountOfTicket}`);
+        console.log(`Seat Type: ${seatType}`);
+        console.log(`Meal Types: ${mealTypes.join(', ')}`);
+        console.log(`Flights: ${flights.join(', ')}`);
+        console.log(`Passenger: ${passenger || 'Unknown'}`);
     }
 }

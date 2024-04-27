@@ -25,7 +25,7 @@ export class Passenger extends Person{
     getGender(){
         return this.gender
     }
-    // getAddress(){
-    //     return this.address
-    // }
+    getAddress(){
+        return this.address
+    }
 }

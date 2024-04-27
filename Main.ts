@@ -22,18 +22,17 @@ const flight3=new Flight("3TYK")
 const flight4=new Flight("4TYK")
 // console.log(flight1);
 
-//BookingRefernece==================
-const bookingRefernce1=new BookingReferenceNumber(passenger1,[flight1,flight2,flight3],[MealType.Vegetarian,MealType.Vegan],SeatType.Economy_Classic);
-// console.log(bookingRefernce1.getDetailInformation());
 
 
 //Booking==============
 const booking1=new Booking(345);
-booking1.addSeat(SeatType.Economy_Flex);
+booking1.addSeat(SeatType.EconomyClassic);
 booking1.addMeal(MealType.Vegetarian);
 booking1.addMeal(MealType.Vegan);
 booking1.addFlight(flight1);
 booking1.addFlight(flight2);
+booking1.addPassenger(passenger1)
+booking1.addSeat(SeatType.BusinessClass)
 // console.log(booking1.getDetails());
 
 
@@ -54,8 +53,9 @@ flight2.addGate(gate2);
 //========BoardingPass=======
 
 
-
-
+//BookingRefernece==================
+const bookingReference1=new BookingReferenceNumber(booking1);
+console.log(bookingReference1.getBookingDetails());
 
 
 
