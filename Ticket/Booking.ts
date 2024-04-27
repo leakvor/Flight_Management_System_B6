@@ -1,17 +1,19 @@
-import { Passenger } from "../Peoples/Passenger";
-import { Gender } from "../Enums/Gender";
-export class Booking extends Passenger {
-    private amountOfTicket: Number;
-    constructor(firstName: string,
-        lastName: string,
-        hight: Number,
-        weight: Number,
-        gender: Gender, email: string,
-        bookingReference: string,
-        amountOfTicket: Number
-    ) {
-        super(firstName, lastName, hight, weight, gender, email, bookingReference);
+import { SeatType } from "../Enums/SeatType";
+import { MealType } from "../Enums/MealType";
+import { FlightType } from "../Enums/FlightType";
+export class Booking{
+    private amountOfTicket:number
+    private SeatType: SeatType;
+    MealTypes: MealType[];
+    flights:FlightType[];
+    constructor(amountOfTicket:number,SeatType:SeatType){
         this.amountOfTicket = amountOfTicket;
+        this.SeatType = SeatType;
     }
-
+    addMeal(meal:MealType):void{
+        this.MealTypes.push(meal);
+    }
+    addFlight(flight:FlightType):void{
+        this.flights.push(flight);
+    }
 }
