@@ -2,6 +2,7 @@ import { SeatType } from "../Enums/SeatType";
 import { MealType } from "../Enums/MealType";
 import { Flight } from "../Flight/Flight";
 import { Passenger } from "../Peoples/Passenger";
+import { Date } from "../Address/Date";
 
 
 export class Booking {
@@ -10,6 +11,8 @@ export class Booking {
     private mealTypes: MealType[] = [];
     private flights: Flight[] = [];
     private passenger:Passenger | null=null;
+    private departureDate:Date | null=null;
+    private returnDate:Date |null=null;
 
     constructor(amountOfTicket: number) {
         this.amountOfTicket = amountOfTicket;
@@ -29,7 +32,13 @@ export class Booking {
     addPassenger(passenger:Passenger){
         this.passenger=passenger
     }
-
+    ​
+    addDepartureDate(date:Date){
+        this.departureDate=date;
+    }
+    addReturnDate(date:Date){
+        this.returnDate=date
+    }
     getAmountOfTicket(): number {
         return this.amountOfTicket;
     }
