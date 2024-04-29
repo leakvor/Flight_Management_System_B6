@@ -1,6 +1,6 @@
 import { Employee } from "./Employee";
 import { Gender } from "../Enums/Gender";
-export class Pilot extends Employee {
+export class Manager extends Employee {
     constructor(firstName: string, lastName: string, hight: Number, weight: Number, gender: Gender, salary: number, yearOfExperience: number) {
         super(firstName, lastName, hight, weight, gender, salary, yearOfExperience);
     }
