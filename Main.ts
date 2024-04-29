@@ -18,6 +18,8 @@ import { Address } from "./Address/Address";
 import { FlightRoute } from "./Flight/FlightRoute";
 import { BoardingPass } from "./Ticket/BoardingPass";
 import { Chef } from "./Peoples/chef";
+import { Manager } from "./Peoples/Manager";
+// import { Chef } from "./Peoples/chef";
 
 
 //==================Create Passenger=============
@@ -59,6 +61,8 @@ const gate3=new Gate("A003");
 
 //=======Add gate to flight
 flight1.addGate(gate1);
+flight1.addFlightType(FlightType.oneway);
+flight2.addFlightType(FlightType.roundtrip);
 flight2.addGate(gate2);
 // console.log(flight1);
 
@@ -175,9 +179,29 @@ const boardingPass = new BoardingPass(ticket1,gate3, date2, seat3);
 // console.log(boardingPass);
 
 //Chef=============
-const chefLeak=new Chef('John', 'Doe', 180, 75, Gender.Male, 50000, 10);
+const chefLeak=new Chef('Leak', 'Smos', 160, 75, Gender.Female, 50000, 10);
 chefLeak.addBookingReference(bookingReference1)
-console.log(chefLeak.displayMealTypeCountsForFlight(flight1));
+// console.log(chefLeak.displayMealTypeCountsForFlight(flight1));
+
+//Get gate that passenger wait for plane===========
+passenger1.BookFLight(flight2);
+// console.log(passenger1.getGate(flight1));
+
+
+//Employees
+const chef1=new Chef('Hak', 'Sava', 170, 34, Gender.Male, 70000, 100);
+const chef2=new Chef('Haha', 'Save', 130, 34, Gender.Male, 2000,1000);
+const chef3=new Chef('Huu', 'Savara', 150, 34, Gender.Female,1000, 10000);
+const manager= new Manager('Hals', 'Sa', 176, 34, Gender.Male, 2500, 100);
+manager.addEmployee(chef1);
+manager.addEmployee(chef2);
+manager.addEmployee(chef3);
+console.log(manager.getTotalSalaryPaid());
+
+
+
+
+
 
 
 

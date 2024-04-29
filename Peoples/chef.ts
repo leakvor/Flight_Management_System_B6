@@ -5,24 +5,6 @@ import { MealType } from "../Enums/MealType";
 import { Booking } from "../Ticket/Booking";
 import { Flight } from "../Flight/Flight";
 
-// export class chef extends Employee{
-//     private bookingReference:BookingReferenceNumber |null=null;
-//     constructor(firstName: string, lastName: string, hight: Number, weight: Number,gender: Gender, salary: number, yearOfExperience: number) {
-//         super(firstName, lastName, hight, weight,gender,salary,yearOfExperience);
-//     }
-//     addBookingReference(bookingReference:BookingReferenceNumber){
-//         this.bookingReference=bookingReference
-//     }
-//     displayBookingInfo(): void {
-//         if (this.bookingReference) {
-//             this.bookingReference.getBookingInformation();
-//         } else {
-//             console.log('No booking reference available for this chef.');
-//         }
-//     }
-
-// }
-
 export class Chef extends Employee {
     private bookingReference: BookingReferenceNumber | null = null;
 
@@ -37,7 +19,7 @@ export class Chef extends Employee {
     ) {
         super(firstName, lastName, height, weight, gender, salary, yearOfExperience);
     }
-
+   
     addBookingReference(bookingReference: BookingReferenceNumber): void {
         this.bookingReference = bookingReference;
     }
@@ -57,7 +39,6 @@ export class Chef extends Employee {
                 });
             });
         }
-
         return mealTypeCounts;
     }
 
