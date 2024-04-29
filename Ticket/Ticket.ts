@@ -7,9 +7,16 @@ import { Passenger } from "../Peoples/Passenger";
 import { Date } from "../Address/Date";
 
 
-export class Ticket extends Booking {
+export class Ticket {
     private ticketNumber: string;
     private ticketStatus: boolean;
+    private amountOfTicket: number;
+    private seatType: SeatType;
+    private mealTypes: MealType[];
+    private flight: Flight;
+    private passenger: Passenger;
+    private departureDate: Date;
+    private returnDate: Date;
 
     constructor(
         amountOfTicket: number,
@@ -19,18 +26,18 @@ export class Ticket extends Booking {
         mealTypes: MealType[],
         flight: Flight,
         passenger: Passenger,
-        departueDate:Date,
-        returnDate:Date
+        departureDate: Date,
+        returnDate: Date
     ) {
-        super(amountOfTicket);
+        this.amountOfTicket = amountOfTicket;
         this.ticketNumber = ticketNumber;
         this.ticketStatus = ticketStatus;
-        this.addSeat(seatType);
-        mealTypes.forEach((mealType) => this.addMeal(mealType)); 
-        this.addFlight(flight); 
-        this.addPassenger(passenger);
-        this.addDepartureDate(departueDate);
-        this.addReturnDate(returnDate);
+        this.seatType = seatType;
+        this.mealTypes = mealTypes;
+        this.flight = flight;
+        this.passenger = passenger;
+        this.departureDate = departureDate;
+        this.returnDate = returnDate;
     }
 
     getTicketNumber(): string {
@@ -41,9 +48,31 @@ export class Ticket extends Booking {
         return this.ticketStatus;
     }
 
-    getDetails(): void {
-        super.getDetails(); 
-        console.log(`Ticket Number: ${this.ticketNumber}`);
-        console.log(`Ticket Status: ${this.ticketStatus}`);
+    getAmountOfTicket(): number {
+        return this.amountOfTicket;
+    }
+
+    getSeatType(): SeatType {
+        return this.seatType;
+    }
+
+    getMealTypes(): MealType[] {
+        return this.mealTypes;
+    }
+
+    getFlight(): Flight {
+        return this.flight;
+    }
+
+    getPassenger(): Passenger {
+        return this.passenger;
+    }
+
+    getDepartureDate(): Date {
+        return this.departureDate;
+    }
+
+    getReturnDate(): Date {
+        return this.returnDate;
     }
 }

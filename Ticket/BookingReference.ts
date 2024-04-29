@@ -5,23 +5,30 @@ import { SeatType } from "../Enums/SeatType";
 import { Booking } from "./Booking";
 
 export class BookingReferenceNumber {
-    private booking: Booking;
+    private bookings: Booking[]=[];
 
-    constructor(booking: Booking) {
-        this.booking = booking;
+    constructor() {
+        
     }
-
-    getBookingDetails(): void {
-        const amountOfTicket = this.booking.getAmountOfTicket();
-        const seatType = this.booking.getSeatType();
-        const mealTypes = this.booking.getMealTypes();
-        const flights = this.booking.getFlights();
-        const passenger = this.booking.getPassenger();
-
-        console.log(`Amount of Ticket: ${amountOfTicket}`);
-        console.log(`Seat Type: ${seatType}`);
-        console.log(`Meal Types: ${mealTypes.join(', ')}`);
-        console.log(`Flights: ${flights.join(', ')}`);
-        console.log(`Passenger: ${passenger || 'Unknown'}`);
+    addBooking(booking:Booking){
+        this.bookings.push(booking)
+    }
+    getBookingInformation(): void {
+        this.bookings.forEach((booking, index) => {
+            console.log(`Booking ${index + 1} Details:`);
+            console.log(`Amount of Ticket: ${booking.getAmountOfTicket()}`);
+            console.log(`Seat Type: ${booking.getSeatType()}`);
+            console.log(`Meal Types: ${booking.getMealTypes().join(', ')}`);
+            console.log(`Flight: ${booking.getFlight()}`);
+            console.log(`Passenger Name: ${booking.getPassenger()}`);
+            console.log(`Departure Date: ${booking.getDepaturdate()}`);
+            console.log(`Return Date: ${booking.getReturndate()}`);
+            console.log('------------------------');
+        });
+    }
+    getBooking():Booking[]{
+        return this.bookings
     }
 }
+
+

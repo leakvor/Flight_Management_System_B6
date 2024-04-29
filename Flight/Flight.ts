@@ -16,4 +16,7 @@ export class Flight {
     addFlightRoute(flightRoute:FlightRoute){
         this.flightRoute=flightRoute
     }
+    getFlightNumber(){
+        return this.flightNumber
+    }
 }

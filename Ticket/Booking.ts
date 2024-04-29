@@ -3,16 +3,18 @@ import { MealType } from "../Enums/MealType";
 import { Flight } from "../Flight/Flight";
 import { Passenger } from "../Peoples/Passenger";
 import { Date } from "../Address/Date";
+import { Ticket } from "./Ticket";
 
 
 export class Booking {
     private amountOfTicket: number;
     private seatType: SeatType | null = null;
     private mealTypes: MealType[] = [];
-    private flights: Flight[] = [];
+    private flight: Flight |null=null;
     private passenger:Passenger | null=null;
     private departureDate:Date | null=null;
     private returnDate:Date |null=null;
+    private tickects:Ticket[]=[];
 
     constructor(amountOfTicket: number) {
         this.amountOfTicket = amountOfTicket;
@@ -27,7 +29,7 @@ export class Booking {
     }
 
     addFlight(flight: Flight): void {
-        this.flights.push(flight);
+        this.flight=flight;
     }
     addPassenger(passenger:Passenger){
         this.passenger=passenger
@@ -38,6 +40,9 @@ export class Booking {
     }
     addReturnDate(date:Date){
         this.returnDate=date
+    }
+    addTicket(ticket:Ticket){
+        this.tickects.push(ticket)
     }
     getAmountOfTicket(): number {
         return this.amountOfTicket;
@@ -51,17 +56,24 @@ export class Booking {
         return this.mealTypes;
     }
 
-    getFlights(): Flight[] {
-        return this.flights;
+    getFlight(){
+        return this.flight;
     }
+   
 
-    getPassenger(): Passenger | null { // Changed return type to Passenger | null
+    getPassenger(): Passenger | null { 
         return this.passenger;
+    }
+    getDepaturdate():Date |null{
+        return this.departureDate;
+    }
+    getReturndate():Date|null{
+        return this.returnDate
     }
     getDetails(): void {
         console.log(`Amount of Ticket: ${this.amountOfTicket}`);
         console.log(`Seat Type: ${this.seatType}`);
         console.log(`Meal Types: ${this.mealTypes.join(', ')}`);
-        console.log(`Flights: ${this.flights.join(', ')}`);
+        console.log(`Flight: ${this.flight}`);
     }
 }
