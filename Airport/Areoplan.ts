@@ -1,11 +1,12 @@
-class Aeroplane{
-    private  registrationNumber:string
-    private numberOfSeat:number
-    private gateNumber:string
-    constructor(registrationNumber:string, numberOfSeat:number, gateNumber:string){
-        this.registrationNumber = registrationNumber
-        this.numberOfSeat = numberOfSeat
-        this.gateNumber = gateNumber
+import { Seat } from "./Seat"
+export class Aeroplane{
+    private  registrationNumber:string;
+    private seats:Seat[]=[];
+    constructor(registrationNumber:string){
+        this.registrationNumber = registrationNumber;
+    }
+    addSeat(seat:Seat){
+        this.seats.push(seat)
     }
 
 
