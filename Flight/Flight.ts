@@ -25,4 +25,8 @@ export class Flight {
     getGate(){
         return this.gate;
     }
+
+    getDepartureDateFlight(){
+        return this.flightRoute?.getDepartureDate()||null;
+    }
 }

@@ -21,6 +21,9 @@ export class FlightRoute{
     addArrivalDate(arrivalDate:Date){
         this.arrivalDate=arrivalDate;
     }
-   
+
+   getDepartureDate(){
+     return this.departureDate
+   }
     
 }

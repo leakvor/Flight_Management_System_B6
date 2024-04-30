@@ -7,21 +7,21 @@ import { Ticket } from "./Ticket";
 
 
 export class Booking {
-    private amountOfTicket: number;
-    private seatType: SeatType | null = null;
+    private bookingNumber: number;
+    private seatTypes: SeatType[]=[];
     private mealTypes: MealType[] = [];
     private flight: Flight |null=null;
     private passenger:Passenger | null=null;
     private departureDate:Date | null=null;
-    private returnDate:Date |null=null;
+    private returnDate?:Date;
     private tickects:Ticket[]=[];
 
-    constructor(amountOfTicket: number) {
-        this.amountOfTicket = amountOfTicket;
+    constructor(bookingNumber: number) {
+        this.bookingNumber = bookingNumber;
     }
 
-    addSeat(seatType: SeatType): void {
-        this.seatType = seatType;
+    addSeat(seat: SeatType): void {
+        this.seatTypes.push(seat);
     }
 
     addMeal(mealType: MealType): void {
@@ -44,12 +44,12 @@ export class Booking {
     addTicket(ticket:Ticket){
         this.tickects.push(ticket)
     }
-    getAmountOfTicket(): number {
-        return this.amountOfTicket;
+    getbookingNumber(): number {
+        return this.bookingNumber;
     }
 
-    getSeatType(): SeatType | null {
-        return this.seatType;
+    getSeatType(): SeatType[] {
+        return this.seatTypes;
     }
 
     getMealTypes(): MealType[] {
@@ -67,12 +67,12 @@ export class Booking {
     getDepaturdate():Date |null{
         return this.departureDate;
     }
-    getReturndate():Date|null{
+    getReturndate(){
         return this.returnDate
     }
     getDetails(): void {
-        console.log(`Amount of Ticket: ${this.amountOfTicket}`);
-        console.log(`Seat Type: ${this.seatType}`);
+        console.log(`Amount of Ticket: ${this.bookingNumber}`);
+        console.log(`Seat Type: ${this.seatTypes}`);
         console.log(`Meal Types: ${this.mealTypes.join(', ')}`);
         console.log(`Flight: ${this.flight}`);
     }
