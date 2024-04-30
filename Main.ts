@@ -24,8 +24,8 @@ import { Manager } from "./Peoples/Manager";
 
 //==================Create Passenger=============
 const passenger1 = new Passenger("kadin","sit",23,89,Gender.Female,"din@gmail.com");
-const passenger2 = new Passenger("Yong","Dek",76,81,Gender.Male,"46E.@gamil.com");
-const passenger3 = new Passenger("NIk","Nas",31,99,Gender.Female,"nik@gmail.com");
+// const passenger2 = new Passenger("Yong","Dek",76,81,Gender.Male,"46E.@gamil.com");
+// const passenger3 = new Passenger("NIk","Nas",31,99,Gender.Female,"nik@gmail.com");
 // console.log(passenger1);
 
 //Flight==========================================
@@ -74,9 +74,9 @@ const seat1=new Seat(SeatType.EconomyFlex,"A001");
 const seat2=new Seat(SeatType.EconomyClassic,"A002");
 const seat3=new Seat(SeatType.BusinessClass,"A003");
 seat1.addPassenger(passenger1);
-seat2.addPassenger(passenger2);
-seat3.addPassenger(passenger3);
-// console.log(seat1);
+// seat2.addPassenger(passenger2);
+// seat3.addPassenger(passenger3);
+// // console.log(seat1);
 
 //Aeroplane==========
 const aeroplane1=new Aeroplane("AT01");
@@ -117,10 +117,10 @@ flightRoute1.addArrivalDate(date2);
 flight1.addFlightRoute(flightRoute1);
 // console.log(flight1);
 
-//Tickect==========
-const ticket1 = new Ticket( 1,'TKT123456',true, SeatType.BusinessClass,[MealType.Vegetarian, MealType.Vegan],flight1,passenger1,date1,date4);
-const ticket2 = new Ticket( 2,'TKT123489',true, SeatType.BusinessClass,[MealType.Vegetarian, MealType.Vegan],flight1,passenger1,date1,date4);
-const ticket3 = new Ticket( 3,'TKT123478',false, SeatType.BusinessClass,[MealType.Vegetarian, MealType.Vegan],flight1,passenger1,date1,date4);
+// //Tickect==========
+// const ticket1 = new Ticket( 1,'TKT123456',true, SeatType.BusinessClass,[MealType.Vegetarian, MealType.Vegan],flight1,passenger1,date1,date4);
+// const ticket2 = new Ticket( 2,'TKT123489',true, SeatType.BusinessClass,[MealType.Vegetarian, MealType.Vegan],flight1,passenger1,date1,date4);
+// const ticket3 = new Ticket( 3,'TKT123478',false, SeatType.BusinessClass,[MealType.Vegetarian, MealType.Vegan],flight1,passenger1,date1,date4);
 // console.log(ticket1);
 
 
@@ -131,36 +131,36 @@ const booking3=new Booking(987);
 booking1.addSeat(SeatType.EconomyClassic);
 booking1.addMeal(MealType.Vegetarian);
 booking1.addMeal(MealType.Vegan);
-booking1.addFlight(flight2);
+booking1.addFlight(flight1);
 
 booking1.addPassenger(passenger1)
 booking1.addSeat(SeatType.BusinessClass)
 booking1.addDepartureDate(date2);
 booking1.addReturnDate(date3);
-booking1.addTicket(ticket3);
-booking1.addTicket(ticket2);
+// booking1.addTicket(ticket3);
+// booking1.addTicket(ticket2);
 
 booking2.addSeat(SeatType.EconomyClassic);
-booking2.addMeal(MealType.Dairy_Free);
+booking2.addMeal(MealType.Vegetarian);
 booking2.addMeal(MealType.Vegan);
-booking2.addFlight(flight3);
-booking2.addPassenger(passenger3)
+booking2.addFlight(flight1);
+// booking2.addPassenger(passenger3)
 booking2.addSeat(SeatType.BusinessClass)
 booking2.addDepartureDate(date2);
 booking2.addReturnDate(date3);
-booking2.addTicket(ticket1);
-booking2.addTicket(ticket2);
+// booking2.addTicket(ticket1);
+// booking2.addTicket(ticket2);
 
-booking3.addSeat(SeatType.EconomyClassic);
-booking3.addMeal(MealType.Vegan);
-booking3.addMeal(MealType.Vegan);
-booking3.addFlight(flight1);
-booking3.addPassenger(passenger3)
-booking3.addSeat(SeatType.BusinessClass)
-booking3.addDepartureDate(date2);
-booking3.addReturnDate(date3);
-booking3.addTicket(ticket1);
-booking3.addTicket(ticket2);
+// booking3.addSeat(SeatType.EconomyClassic);
+// booking3.addMeal(MealType.Vegan);
+// booking3.addMeal(MealType.Vegan);
+// booking3.addFlight(flight1);
+// booking3.addPassenger(passenger3)
+// booking3.addSeat(SeatType.BusinessClass)
+// booking3.addDepartureDate(date2);
+// booking3.addReturnDate(date3);
+// booking3.addTicket(ticket1);
+// booking3.addTicket(ticket2);
 // console.log(booking1);
 
 
@@ -175,28 +175,28 @@ bookingReference1.addBooking(booking3);
 
 
 //========BoardingPass=======
-const boardingPass = new BoardingPass(ticket1,gate3, date2, seat3);
+// const boardingPass = new BoardingPass(ticket1,gate3, date2, seat3);
 // console.log(boardingPass);
 
-//Chef=============
+// //Chef=============
 const chefLeak=new Chef('Leak', 'Smos', 160, 75, Gender.Female, 50000, 10);
 chefLeak.addBookingReference(bookingReference1)
-// console.log(chefLeak.displayMealTypeCountsForFlight(flight1));
+console.log(chefLeak.displayMealTypeCountsForFlight(flight1));
 
 //Get gate that passenger wait for plane===========
-passenger1.BookFLight(flight2);
+// passenger1.BookFLight(flight2);
 // console.log(passenger1.getGate(flight1));
 
 
 //Employees
-const chef1=new Chef('Hak', 'Sava', 170, 34, Gender.Male, 70000, 100);
-const chef2=new Chef('Haha', 'Save', 130, 34, Gender.Male, 2000,1000);
-const chef3=new Chef('Huu', 'Savara', 150, 34, Gender.Female,1000, 10000);
-const manager= new Manager('Hals', 'Sa', 176, 34, Gender.Male, 2500, 100);
-manager.addEmployee(chef1);
-manager.addEmployee(chef2);
-manager.addEmployee(chef3);
-console.log(manager.getTotalSalaryPaid());
+// const chef1=new Chef('Hak', 'Sava', 170, 34, Gender.Male, 70000, 100);
+// const chef2=new Chef('Haha', 'Save', 130, 34, Gender.Male, 2000,1000);
+// const chef3=new Chef('Huu', 'Savara', 150, 34, Gender.Female,1000, 10000);
+// const manager= new Manager('Hals', 'Sa', 176, 34, Gender.Male, 2500, 100);
+// manager.addEmployee(chef1);
+// manager.addEmployee(chef2);
+// manager.addEmployee(chef3);
+// console.log(manager.getTotalSalaryPaid());
 
 
 
