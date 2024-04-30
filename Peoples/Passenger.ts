@@ -3,6 +3,7 @@ import { Gender } from "../Enums/Gender";
 import { Address } from "../Address/Address";
 import { Flight } from "../Flight/Flight";
 import { Gate } from "../Airport/gate";
+import { Baggage } from "../Flight/Baggage";
 export class Passenger extends Person{
     private email: string;
     private address?:Address;
