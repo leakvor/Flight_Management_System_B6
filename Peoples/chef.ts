@@ -19,14 +19,14 @@ export class Chef extends Employee {
     ) {
         super(firstName, lastName, height, weight, gender, salary, yearOfExperience);
     }
-   
+   // ========================AddBookingReference==========================
     addBookingReference(bookingReference: BookingReferenceNumber): void {
         this.bookingReference = bookingReference;
     }
 
-    CountsMealTypeForFlight(flightNumber: Flight): Map<MealType, number> {
+    //==========CountsMealTypeForFlight=============================
+    CountsMealTypeForFlight(flightNumber: Flight): string {
         const mealTypeCounts: Map<MealType, number> = new Map();
-
         if (this.bookingReference) {
             const bookingsForFlight = this.bookingReference.getBooking().filter(booking =>
                 booking.getFlight() === flightNumber
@@ -39,13 +39,15 @@ export class Chef extends Employee {
                 });
             });
         }
-        return mealTypeCounts;
-    }
-
-    displayMealTypeCountsForFlight(flightNumber: Flight): void {
-        const mealTypeCounts = this.CountsMealTypeForFlight(flightNumber);
+        let result = `Flight: ${flightNumber.getFlightNumber()}\n`;
+        result += `The type of meals that chef should prepare are:\n`;
         mealTypeCounts.forEach((count, mealType) => {
-            console.log(`${mealType}: ${count}`);
+            result += `${mealType}: ${count}\n`;
         });
+        return result;
     }
-}
+    }
+    
+    
+
+    

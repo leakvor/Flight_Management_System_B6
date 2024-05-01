@@ -8,6 +8,8 @@ export class Employee extends Person {
         this.salary = salary;
         this.yearOfExperience = yearOfExperience;
     }
+
+    //======getSalary==============
     getSalary(){
         return this.salary
     }

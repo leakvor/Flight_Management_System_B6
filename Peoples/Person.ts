@@ -12,4 +12,24 @@ export abstract class Person {
         this.weight = weight;
         this.gender = gender;
     }
+    getFirstName(): string {
+        return this.firstName;
+    }
+
+    getLastName(): string {
+        return this.lastName;
+    }
+
+    getHeight() {
+        return this.height;
+    }
+
+    getWeight() {
+        return this.weight;
+    }
+
+    getGender(): Gender {
+        return this.gender;
+    }
+    
 }
