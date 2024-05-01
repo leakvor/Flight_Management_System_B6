@@ -6,6 +6,7 @@ export class Airline{
     constructor(name:string){
         this.name = name;
     }
+    //======== Add aeroplane to airport===========
     addAeroplane(aeroplane:Aeroplane){
         this.aeroplanes.push(aeroplane)
     }

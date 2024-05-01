@@ -39,39 +39,39 @@ export class Ticket {
         this.departureDate = departureDate;
         this.returnDate = returnDate;
     }
-
+    //===========get ticket Number==========
     getTicketNumber(): string {
         return this.ticketNumber;
     }
-
+    // ===== get Ticket Status=======
     getTicketStatus(): boolean {
         return this.ticketStatus;
     }
-
+    //===  get Amount Of Ticket=======
     getAmountOfTicket(): number {
         return this.amountOfTicket;
     }
-
+    //===========get Seat Type=============
     getSeatType(): SeatType {
         return this.seatType;
     }
-
+    //==============get Meal Types============
     getMealTypes(): MealType[] {
         return this.mealTypes;
     }
-
+    //=============get Flight=================
     getFlight(): Flight {
         return this.flight;
     }
-
+    //==========get Passenger============
     getPassenger(): Passenger {
         return this.passenger;
     }
-
+    //==========get Departure Date==============
     getDepartureDate(): Date {
         return this.departureDate;
     }
-
+    //============get Return Date=============
     getReturnDate(): Date {
         return this.returnDate;
     }

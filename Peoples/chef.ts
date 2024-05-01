@@ -19,7 +19,7 @@ export class Chef extends Employee {
     ) {
         super(firstName, lastName, height, weight, gender, salary, yearOfExperience);
     }
-   // ========================AddBookingReference==========================
+    // ========================AddBookingReference==========================
     addBookingReference(bookingReference: BookingReferenceNumber): void {
         this.bookingReference = bookingReference;
     }
@@ -39,15 +39,15 @@ export class Chef extends Employee {
                 });
             });
         }
-        let result = `Flight: ${flightNumber.getFlightNumber()}\n`;
+        let result = `In Flight: ${flightNumber.getFlightNumber()}\n`;
         result += `The type of meals that chef should prepare are:\n`;
         mealTypeCounts.forEach((count, mealType) => {
             result += `${mealType}: ${count}\n`;
         });
         return result;
     }
-    }
-    
-    
+}
 
-    
+
+
+

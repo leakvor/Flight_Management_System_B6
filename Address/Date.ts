@@ -5,20 +5,4 @@ export class Date{
         this.year = year;
         this.time = time;
     }
-
-    getDay(): string {
-        return this.day;
-    }
-
-    getMonth(): string {
-        return this.month;
-    }
-
-    getYear(): number {
-        return this.year;
-    }
-
-    getTime(): string {
-        return this.time;
-    }
 }

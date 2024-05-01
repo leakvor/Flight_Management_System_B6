@@ -5,9 +5,8 @@ export class Aeroplane{
     constructor(registrationNumber:string){
         this.registrationNumber = registrationNumber;
     }
+    //===== Add seat to aeroplane=======
     addSeat(seat:Seat){
         this.seats.push(seat)
     }
-
-
 }

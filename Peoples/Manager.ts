@@ -17,6 +17,7 @@ export class Manager extends Employee {
         super(firstName, lastName, height, weight, gender, salary, yearOfExperience);
     }
 
+    //========= Add Employee===========
     addEmployee(employee: Employee): void {
         this.employees.push(employee);
     }
@@ -30,24 +31,19 @@ export class Manager extends Employee {
         return `I will pay ${totalSalary}$ for all employee.`;
     }
 
-
     //=============add BookingReference============
     addBookingReference(bookingReference: BookingReferenceNumber): void {
         this.bookingRefernece = bookingReference;
     }
 
-    getNumberReturnTicket(): string {
+    // ======== Get Number that has return ticket===========
+    getNumberReturnTicket(): number {
         let count: number = 0;
         this.bookingRefernece?.getBooking().forEach(booking => {
             if (booking.getDepaturdate() !== null) {
                 count++;
             }
         });
-        if(count<2){
-            return `The ticket that return is ${count} ticket.`;
-        }else{
-            return `The ticket that return are ${count} tickets.`;
-        }
-        
+        return count
     }
 }

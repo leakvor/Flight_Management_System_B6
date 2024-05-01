@@ -10,6 +10,7 @@ export class Seat{
     this.type = type;
     this.SeatNumber = SeatNumber;
    }
+   //====Add Passenger==========
    addPassenger(passenger:Passenger){
       this.Passenger=passenger
    }

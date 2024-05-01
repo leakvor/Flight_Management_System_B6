@@ -14,6 +14,8 @@ export class Controllers extends Employee {
     addBookingReference(bookingReference:BookingReferenceNumber){
         this.bookingReference=bookingReference;
     }
+    
+    //==============Get all Information of each Passenger=================
     getDetailInformation(bookingNumber: number) {
         if (this.bookingReference) {
             const bookings = this.bookingReference.getBooking();
