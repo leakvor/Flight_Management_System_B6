@@ -6,9 +6,5 @@ export class Baggage{
         this.weights=weights;
     }
     
-    getTag(){
-        return this.codeId;
-      
-    }
 
 }
