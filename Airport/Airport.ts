@@ -11,21 +11,25 @@ export class Airport{
      this.code = code;
      this.name = name;
    }
-   addAddress(address:Address){
+   //========= Add Address to airport==========
+   addAddress(address:Address):void{
     this.airportAddress=address;
    }
-   addAirline(airline:Airline){
+   //======= Add airline to==========
+   addAirline(airline:Airline):void{
     this.airlines.push(airline)
    }
-   addGate(gate:Gate){
+   //===========Add Gate=======
+   addGate(gate:Gate):void{
     this.gates.push(gate);
    }
+   //=====Get Name=========
    getName(){
      return this.name;
    }
+   //========Get Code=======
    getCode(){
      return this.code;
    }
-
 
 }

@@ -15,7 +15,6 @@ export class Passenger extends Person{
     constructor (firstName: string, lastName: string, height: Number, weight: Number, gender: Gender,email: string){
         super(firstName, lastName, height, weight, gender);
         this.email = email;
-        // this.bookingReference = bookingReference;
     }
     //========Address============
     addAddress(address:Address){
@@ -51,19 +50,19 @@ export class Passenger extends Person{
     addBaggage(Baggage:Baggage):void{
         this.baggages.push(Baggage);   
     }
-
-    getGate(flight: Flight): string {
+    //====== Get Gate from filght that passenger waiting for=========
+    getGate(flight: Flight) {
         const booking = this.bookings.find(booking => booking.getFlight() === flight);
         if (booking) {
             const gate = flight.getGate();
             if (gate) {
-                return `Your plane that waiting  at Gate ${gate.getGateNumber()}`;
-            } else {
-                return 'No gate';
+                return gate.getGateNumber();
             }
-        } else {
-            return 'No flight';
         }
+    }
+    //=====Get Baggage==========
+    getBaggage(): Baggage[] {
+        return this.baggages;
     }
 }
 

@@ -18,7 +18,7 @@ export class BoardingPass {
         this.boardingTime = boardingTime;
         this.seatNumber = seatNumber;
     }
-
+    //===== Generate Boarding Pass from ticket information======
     generateBoardingPass(): string {
         return `
             Boarding Pass

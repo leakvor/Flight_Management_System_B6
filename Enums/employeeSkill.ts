@@ -3,5 +3,5 @@ export enum employeeSkill{
     pilot="Pilot",
     chef="Chef",
     crew="Crew",
-    flightdent="Crew",
+    flightAttendent="flightAttendent",
 }

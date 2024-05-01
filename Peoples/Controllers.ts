@@ -15,6 +15,8 @@ export class Controllers extends Employee {
     addBookingReference(bookingReference:BookingReferenceNumber){
         this.bookingReference=bookingReference;
     }
+    
+    //==============Get all Information of each Passenger=================
     getDetailInformation(bookingNumber: number) {
         if (this.bookingReference) {
             const bookings = this.bookingReference.getBooking();
@@ -22,7 +24,7 @@ export class Controllers extends Employee {
             if (booking) {
                 const passenger: Passenger | null = booking.getPassenger();
                 if (passenger) {
-                    return (`Booking Number: ${bookingNumber} has Passenger:(Name: ${passenger.getFirstName()} ${passenger.getLastName()},Height: ${passenger.getHeight()}, Weight: ${passenger.getWeight()}) `);
+                    return (`Booking Number: ${bookingNumber} has Passenger:(Name: ${passenger.getFirstName()} ${passenger.getLastName()},Height: ${passenger.getHeight()}, Weight: ${passenger.getWeight()}, Baggage: ${passenger.getBaggage()}) `);
                 } else {
                     return (`Booking with number ${bookingNumber} does not have valid passenger or flight information.`);
                 }

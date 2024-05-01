@@ -8,7 +8,7 @@ export class Pilot extends Employee {
         super(firstName, lastName, height, weight, gender, salary, yearOfExperience);
     }
     //===========addFlight================
-    addFlight(flight:Flight){
+    addFlight(flight:Flight):void{
         this.flights.push(flight);
     }
     //==========Get Flight by date that each pilot will join============
