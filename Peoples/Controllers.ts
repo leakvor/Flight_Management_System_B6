@@ -4,6 +4,7 @@ import { BookingReferenceNumber } from "../Ticket/BookingReference";
 import { Booking } from "../Ticket/Booking";
 import { Flight } from "../Flight/Flight";
 import { Passenger } from "./Passenger";
+import { FrequenFlyer } from "../Ticket/FrequentFlyer";
 export class Controllers extends Employee {
     private bookingReference:BookingReferenceNumber |null=null;BookingReferenceNumber: any;
 ;
@@ -23,10 +24,14 @@ export class Controllers extends Employee {
             const booking = bookings.find(booking => booking.getbookingNumber() === bookingNumber);
             if (booking) {
                 const passenger: Passenger | null = booking.getPassenger();
-                if (passenger) {
-                    return (`Booking Number: ${bookingNumber} has Passenger:(Name: ${passenger.getFirstName()} ${passenger.getLastName()},Height: ${passenger.getHeight()}, Weight: ${passenger.getWeight()}, Baggage: ${passenger.getBaggage()}) `);
-                } else {
-                    return (`Booking with number ${bookingNumber} does not have valid passenger or flight information.`);
+                if (passenger?.getAddress() && passenger.getFrequanflyer()) {
+                return (`Booking Number: ${bookingNumber} has Passenger:(Name: ${passenger.getFirstName()} ${passenger.getLastName()},Height: ${passenger.getHeight()}, Weight: ${passenger.getWeight()}, Baggage: ${passenger.getBaggage()}, Email: ${passenger.getEmail()}, Address: ${passenger.getAddress()}, Frequanflyer: ${passenger.getFrequanflyer()}) `);
+                } else if(passenger?.getAddress()) {
+                    return (`Booking Number: ${bookingNumber} has Passenger:(Name: ${passenger.getFirstName()} ${passenger.getLastName()},Height: ${passenger.getHeight()}, Weight: ${passenger.getWeight()}, Baggage: ${passenger.getBaggage()}, Email: ${passenger.getEmail()}, Address: ${passenger.getAddress()}) `);
+                }else if(passenger?.getFrequanflyer()){
+                    return (`Booking Number: ${bookingNumber} has Passenger:(Name: ${passenger.getFirstName()} ${passenger.getLastName()},Height: ${passenger.getHeight()}, Weight: ${passenger.getWeight()}, Baggage: ${passenger.getBaggage()}, Email: ${passenger.getEmail()}, Frequanflyer: ${passenger.getFrequanflyer()}) `);
+                }else if(passenger){
+                    return (`Booking Number: ${bookingNumber} has Passenger:(Name: ${passenger.getFirstName()} ${passenger.getLastName()},Height: ${passenger.getHeight()}, Weight: ${passenger.getWeight()}, Baggage: ${passenger.getBaggage()}, Email: ${passenger.getEmail()} `);
                 }
             } 
         }

@@ -6,6 +6,10 @@ import { CoPilot } from "../Peoples/CoPilot";
 import { Chef } from "../Peoples/chef";
 import { Pilot } from "../Peoples/Pilot";
 import { FlightAttendent } from "../Peoples/FlightAttendent";
+import { Passenger } from "../Peoples/Passenger";
+import { Baggage } from "./Baggage";
+
+
 export class Flight {
     private gate: Gate | null = null;
     private flight: FlightType |null =null ; 
@@ -14,6 +18,9 @@ export class Flight {
     private Co_pilot:CoPilot |null=null;
     private pilot:Pilot |null=null;
     private chef?:Chef ;
+    private passengers:Passenger[]=[];
+    private numberOfBags: number = 0;
+
     constructor(private flightNumber: string) {
         this.flightNumber = flightNumber;
     }
@@ -57,4 +64,21 @@ export class Flight {
     getDepartureDateFlight(){
         return this.flightRoute?.getDepartureDate()||null;
     }
+    //========Add passenger to flight=========
+    addPassenger(passenger:Passenger){
+        this.passengers.push(passenger);
+    }
+
+    addBaggage(baggage: Baggage): void {
+        this.passengers.forEach(passenger => {
+            if (passenger.getBaggage().includes(baggage)) {
+                this.numberOfBags++;
+            }
+        });
+    }
+    //=====Get the total number of bags for this flight========
+    getNumberOfBags(): number {
+        return this.numberOfBags;
+    }
+   
 }

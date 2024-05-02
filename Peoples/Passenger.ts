@@ -5,11 +5,13 @@ import { Flight } from "../Flight/Flight";
 import { Gate } from "../Airport/gate";
 import { Booking } from "../Ticket/Booking";
 import { Baggage } from "../Flight/Baggage";
+import { FrequenFlyer } from "../Ticket/FrequentFlyer";
 export class Passenger extends Person{
     private email: string;
     private address?:Address;
     private bookings:Booking[]=[];
     private baggages:Baggage[]=[];
+    private frequenFlyer?:FrequenFlyer;
     
     // private bookingReference: string;
     constructor (firstName: string, lastName: string, height: Number, weight: Number, gender: Gender,email: string){
@@ -18,9 +20,12 @@ export class Passenger extends Person{
     }
     //========Address============
     addAddress(address:Address){
-        this.address
+        this.address=address
     }
-
+    //======Add frequanFlyer======
+    addFrequanflyer(frequenFlyer:FrequenFlyer){
+        this.frequenFlyer=frequenFlyer;
+    }
     //===========get FirstName================
     getFirstName(){
         return this.firstName;
@@ -63,6 +68,14 @@ export class Passenger extends Person{
     //=====Get Baggage==========
     getBaggage(): Baggage[] {
         return this.baggages;
+    }
+    //=====get frequanflyer===========
+    getFrequanflyer(){
+        return this.frequenFlyer
+    }
+    //=====get Number of baggages========
+    getNumberOfBags(): number {
+        return this.baggages.length;
     }
 }
 

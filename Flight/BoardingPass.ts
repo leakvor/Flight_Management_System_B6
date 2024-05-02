@@ -1,22 +1,20 @@
-import { Booking } from "./Booking";
-import { Ticket } from "./Ticket";
+import { Booking } from "../Ticket/Booking";
+import { Ticket } from "../Ticket/Ticket";
 import { Seat } from "../Airport/Seat";
 import { Date } from "../Address/Date";
-import { Gate } from "../Airport/gate";
+import { checkIn } from "./checkIn";
 
 
 
 export class BoardingPass {
     private ticket: Ticket;
-    private boardingGate: Gate;
     private boardingTime: Date |null=null;
-    private seatNumber: Seat |null=null;
+    private checkIn:checkIn |null=null;
 
-    constructor(ticket: Ticket, boardingGate: Gate, boardingTime: Date, seatNumber: Seat) {
+    constructor(ticket: Ticket, boardingTime: Date,checkIn:checkIn) {
         this.ticket = ticket;
-        this.boardingGate = boardingGate;
         this.boardingTime = boardingTime;
-        this.seatNumber = seatNumber;
+        this.checkIn=checkIn;
     }
     //===== Generate Boarding Pass from ticket information======
     generateBoardingPass(): string {
@@ -31,9 +29,8 @@ export class BoardingPass {
             Passenger: ${this.ticket.getPassenger()}
             Departure Date: ${this.ticket.getDepartureDate()}
             Return Date: ${this.ticket.getReturnDate()}
-            Boarding Gate: ${this.boardingGate}
+            checkIn: ${this.checkIn}
             Boarding Time: ${this.boardingTime}
-            Seat Number: ${this.seatNumber}
         `;
     }
 }

@@ -16,7 +16,7 @@ import { Airline } from "./Airport/Airline";
 import { Airport } from "./Airport/Airport";
 import { Address } from "./Address/Address";
 import { FlightRoute } from "./Flight/FlightRoute";
-import { BoardingPass } from "./Ticket/BoardingPass";
+import { BoardingPass } from "./Flight/BoardingPass";
 import { Chef } from "./Peoples/chef";
 import { Manager } from "./Peoples/Manager";
 import { Pilot } from "./Peoples/Pilot";
@@ -25,6 +25,8 @@ import { Controllers } from "./Peoples/Controllers";
 import { FlightsCrew } from "./Peoples/FlightCrew";
 import { FlightAttendent } from "./Peoples/FlightAttendent";
 import { Baggage } from "./Flight/Baggage";
+import { checkIn } from "./Flight/checkIn";
+import { baggaeHandler } from "./Peoples/baggageHandler";
 
 
 
@@ -54,7 +56,7 @@ const March2025=new Date('03', 'March', 2025, '23:00 PM');
 // console.log(bookingFLight1.getDetails());
 
 //=====Create FrequenFlyer========
-const ronNanFrequenflyer=new FrequenFlyer("Ronana member 1");
+const dinFrequenflyer=new FrequenFlyer("Ronana member 1");
 // console.log(ronNanFrequenflyer);
 
 //=====Create Gate===========
@@ -68,7 +70,6 @@ flightABC123.addFlightType(FlightType.oneway);
 flight2TYK.addFlightType(FlightType.roundtrip);
 flight2TYK.addGate(gate2);
 // console.log(flightABC123);
-
 
 
 
@@ -119,7 +120,7 @@ secondFlightRoute.addDepartureDate(April2024)
 flight2TYK.addFlightRoute(secondFlightRoute)
 // console.log(firstFLightRoute);
 
-//add flightRoute to flight
+//============add flightRoute to flight=================
 flightABC123.addFlightRoute(firstFLightRoute);
 // console.log(flightABC123);
 
@@ -177,15 +178,24 @@ bookingReference1.addBooking(bookingFlight2);
 bookingReference1.addBooking(bookingFlight3);
 
 
+//=======CheckIn===================
+const DincheckIn=new checkIn(1,"din02",true,KadinSit);
+
 //========BoardingPass=======
-const boardingPass = new BoardingPass(ticket1,gate3, Feburary2022, seat3);
+const boardingPass = new BoardingPass(ticket1, Feburary2022, DincheckIn);
 // console.log(boardingPass);
 
 //==========Create Baggage=======
 const kaDinBaggage=new Baggage("GK001",20);
+const kaDinBaggage1=new Baggage("GK002",20);
+const NakBaggage=new Baggage("GK003",20);
 
 //======Passenger Baggage==========
 KadinSit.addBaggage(kaDinBaggage);
+KadinSit.addBaggage(kaDinBaggage1);
+
+//=======Add frequanflyer to Passenger=======
+KadinSit.addFrequanflyer(dinFrequenflyer)
 
 //==========Create Employees==============
 const chefHak=new Chef('Hak', 'Sava', 170, 34, Gender.Male, 70000, 100);
@@ -195,7 +205,13 @@ const CopilotHa=new CoPilot('Haha', 'Save', 130, 34, Gender.Male, 2000,1000);
 const contollerHuu=new Controllers('Huu', 'Savara', 150, 34, Gender.Female,1000, 10000);
 const managerHals= new Manager('Hals', 'Sa', 176, 34, Gender.Male, 2500, 100);
 const pilotHakZin=new Pilot('Hak', 'Chunn', 170, 34, Gender.Male, 700000, 100);
+const Nok=new baggaeHandler('Nok', 'Sa', 150, 54, Gender.Male, 700, 1);
+const kaka=new baggaeHandler('Kaka', 'SreyKa', 190, 57, Gender.Female, 500, 2);
 
+//============Add BaggagerHanders to airline==============
+camAirline.addBaggageHnadler(Nok);
+camAirline.addBaggageHnadler(kaka);
+YonDok.addBaggage(NakBaggage);
 
 //=========== Add employee to manager list=============
 managerHals.addEmployee(chefHak);
@@ -211,6 +227,18 @@ flight2TYK.addFlightAttendent(naNaAttendent);
 flight2TYK.addFlightAttendent(naTaAttendent);
 flight2TYK.addCoPilot(CopilotHa);
 flight2TYK.addPilot(pilotHakZin);
+
+//========Add passenger to flight=====
+flight2TYK.addPassenger(KadinSit);
+flight2TYK.addPassenger(YonDok);
+
+//========Add baggage to flight======
+flight2TYK.addBaggage(kaDinBaggage);
+flight2TYK.addBaggage(NakBaggage);
+
+//=======Assign flight to baggage Handler========
+Nok.addFlight(flight2TYK);
+Nok.addFlight(flight3TYK);
 
 //===========Count number of each mealType that chef should prepare in a flight=============
 const chefLeak=new Chef('Leak', 'Smos', 160, 75, Gender.Female, 50000, 10);
@@ -239,6 +267,10 @@ console.log(`5/ The ticket that return has ${managerHals.getNumberReturnTicket()
 contollerHuu.addBookingReference(bookingReference1);
 console.log( `6/ ${contollerHuu.getDetailInformation(345)}`);
 
+//===============As a baggage handler I want to know how many baggage in each flight that I will response for given flight=========
+const numberOfBags = Nok.getNumberOfBagsForFlight(flight2TYK);
+const bagsMessage = numberOfBags !== null ? (numberOfBags < 2 ? 'baggage' : 'baggages') : '';
+console.log(`7/ In flight2TYK has ${numberOfBags} ${bagsMessage}.`);
 
 
 
