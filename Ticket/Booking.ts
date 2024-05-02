@@ -15,9 +15,11 @@ export class Booking {
     private departureDate:Date | null=null;
     private returnDate?:Date;
     private tickects:Ticket[]=[];
+    private price:number;
 
-    constructor(bookingNumber: number) {
+    constructor(bookingNumber: number,price:number) {
         this.bookingNumber = bookingNumber;
+        this.price=price
     }
     //==== Add seat======
     addSeat(seat: SeatType): void {

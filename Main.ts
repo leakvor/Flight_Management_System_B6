@@ -132,9 +132,9 @@ const ticket3 = new Ticket( 3,'TKT123478',false, SeatType.BusinessClass,[MealTyp
 
 
 //========Create Booking==============
-const bookingFLight1=new Booking(345);
-const bookingFlight2=new Booking(245);
-const bookingFlight3=new Booking(987);
+const bookingFLight1=new Booking(345,200);
+const bookingFlight2=new Booking(245,300);
+const bookingFlight3=new Booking(987,100);
 bookingFLight1.addSeat(SeatType.EconomyClassic);
 bookingFLight1.addMeal(MealType.Vegetarian);
 bookingFLight1.addMeal(MealType.Vegan);
@@ -267,7 +267,7 @@ console.log(`5/ The ticket that return has ${managerHals.getNumberReturnTicket()
 contollerHuu.addBookingReference(bookingReference1);
 console.log( `6/ ${contollerHuu.getDetailInformation(345)}`);
 
-//===============As a baggage handler I want to know how many baggage in each flight that I will response for given flight=========
+//===============As a baggage handler I want to know how many baggages in each flight that I will response for given flight=========
 const numberOfBags = Nok.getNumberOfBagsForFlight(flight2TYK);
 const bagsMessage = numberOfBags !== null ? (numberOfBags < 2 ? 'baggage' : 'baggages') : '';
 console.log(`7/ In flight2TYK has ${numberOfBags} ${bagsMessage}.`);
