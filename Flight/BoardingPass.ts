@@ -4,8 +4,6 @@ import { Seat } from "../Airport/Seat";
 import { Date } from "../Address/Date";
 import { checkIn } from "./checkIn";
 
-
-
 export class BoardingPass {
     private ticket: Ticket;
     private boardingTime: Date |null=null;

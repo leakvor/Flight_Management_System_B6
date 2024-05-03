@@ -69,7 +69,7 @@ export class Flight {
         this.passengers.push(passenger);
     }
 
-    addBaggage(baggage: Baggage): void {
+    CountBaggage(baggage: Baggage): void {
         this.passengers.forEach(passenger => {
             if (passenger.getBaggage().includes(baggage)) {
                 this.numberOfBags++;

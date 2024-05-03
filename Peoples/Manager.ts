@@ -23,12 +23,12 @@ export class Manager extends Employee {
     }
 
     //========== Get the total salary paid to all employees============
-    getTotalSalaryPaid(): string {
+    getTotalSalaryPaid(): number {
         let totalSalary = 0;
         this.employees.forEach(employee => {  
             totalSalary += employee.getSalary(); 
         });
-        return `I will pay ${totalSalary}$ for all employee.`;
+        return totalSalary;
     }
 
     //=============add BookingReference============

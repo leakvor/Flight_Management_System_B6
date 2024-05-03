@@ -26,8 +26,7 @@ export class FlightRoute{
         this.arrivalDate=arrivalDate;
     }
     //=========get Departure Date===========
-   getDepartureDate(){
+    getDepartureDate(){
      return this.departureDate
-   }
-    
+   } 
 }

@@ -1,4 +1,4 @@
 export enum FlightType{
-    oneway="One way",
-    roundtrip="Round trip",
+    oneway="One Way",
+    roundtrip="Round Trip",
 }

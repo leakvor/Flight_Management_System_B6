@@ -14,5 +14,4 @@ export class Baggage{
     getWeight():number{
         return this.weights
     }
-
 }

@@ -233,42 +233,42 @@ flight2TYK.addPassenger(KadinSit);
 flight2TYK.addPassenger(YonDok);
 
 //========Add baggage to flight======
-flight2TYK.addBaggage(kaDinBaggage);
-flight2TYK.addBaggage(NakBaggage);
+flight2TYK.CountBaggage(kaDinBaggage);
+flight2TYK.CountBaggage(NakBaggage);
 
 //=======Assign flight to baggage Handler========
 Nok.addFlight(flight2TYK);
 Nok.addFlight(flight3TYK);
 
-//===========Count number of each mealType that chef should prepare in a flight=============
+//===========Count number of each mealType that chef should prepare in a flight (by given flight)=============
 const chefLeak=new Chef('Leak', 'Smos', 160, 75, Gender.Female, 50000, 10);
 chefLeak.addBookingReference(bookingReference1)
 console.log(`1/ ${chefLeak.CountsMealTypeForFlight(flightABC123)}`);
 
-//=======Get gate that passenger wait for plane===========
+//=======Get gate that passenger wait for aeroplane of his flight(by given flight)===========
 KadinSit.addBooking(bookingFLight1);
 KadinSit.addBooking(bookingFlight2);
 console.log(`2/ Your plane that waiting  at Gate ${KadinSit.getGate(flightABC123)}`);
 
-//=========Manager want to know how much money that he must paid for all employee=============
-console.log(`3/ ${managerHals.getTotalSalaryPaid()}`);
+//=========Manager want to know how much money that he must paid for all employees=============
+console.log(`3/ I will paid ${managerHals.getTotalSalaryPaid()}$ for all my employees.`);
 
-//======Pliot want to know how many flight he has by give date========
+//======Pliot want to know how many flight he has (by given date)========
 pilotHakZin.addFlight(flightABC123);
 pilotHakZin.addFlight(flight2TYK);
 pilotHakZin.addFlight(flight3TYK);
 console.log(`4/ ${pilotHakZin.GetFlight(April2024)}`);
 
-//=======Manager manage how many tickect return==============
+//=======Manager want to know how many tickects that return ==============
 managerHals.addBookingReference(bookingReference1);
 console.log(`5/ The ticket that return has ${managerHals.getNumberReturnTicket()}`);
 
-//======Get Information details of passenger for given flight==========
+//======Get Information details of passenger (by given BookingNumber of each passenger that has been booking already)==========
 contollerHuu.addBookingReference(bookingReference1);
 console.log( `6/ ${contollerHuu.getDetailInformation(345)}`);
 
-//===============As a baggage handler I want to know how many baggages in each flight that I will response for given flight=========
-const numberOfBags = Nok.getNumberOfBagsForFlight(flight2TYK);
+//===============As a baggage handler I want to know how many baggages in each flight that I will response (by given flightNumber)=========
+const numberOfBags = Nok.getNumberOfBagsForFlight('2TYK');
 const bagsMessage = numberOfBags !== null ? (numberOfBags < 2 ? 'baggage' : 'baggages') : '';
 console.log(`7/ In flight2TYK has ${numberOfBags} ${bagsMessage}.`);
 

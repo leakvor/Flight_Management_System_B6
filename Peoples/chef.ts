@@ -7,7 +7,6 @@ import { Flight } from "../Flight/Flight";
 
 export class Chef extends Employee {
     private bookingReference: BookingReferenceNumber | null = null;
-
     constructor(
         firstName: string,
         lastName: string,
@@ -25,11 +24,11 @@ export class Chef extends Employee {
     }
 
     //==========CountsMealTypeForFlight=============================
-    CountsMealTypeForFlight(flightNumber: Flight): string {
+    CountsMealTypeForFlight(flight: Flight): string {
         const mealTypeCounts: Map<MealType, number> = new Map();
         if (this.bookingReference) {
             const bookingsForFlight = this.bookingReference.getBooking().filter(booking =>
-                booking.getFlight() === flightNumber
+                booking.getFlight() === flight
             );
 
             bookingsForFlight.forEach(booking => {
@@ -39,7 +38,7 @@ export class Chef extends Employee {
                 });
             });
         }
-        let result = `In Flight: ${flightNumber.getFlightNumber()}\n`;
+        let result = `In Flight: ${flight.getFlightNumber()}\n`;
         result += `The type of meals that chef should prepare are:\n`;
         mealTypeCounts.forEach((count, mealType) => {
             result += `${mealType}: ${count}\n`;

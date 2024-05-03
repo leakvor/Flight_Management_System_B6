@@ -13,6 +13,5 @@ export class Seat{
    //====Add Passenger==========
    addPassenger(passenger:Passenger){
       this.Passenger=passenger
-   }
-   
+   }   
 }
