@@ -20,7 +20,7 @@ export class Flight {
     private chef?:Chef ;
     private passengers:Passenger[]=[];
     private numberOfBags: number = 0;
-    private boardingPass:BoardingPass;
+    private boardingPass:BoardingPass |null=null;
 
     constructor(private flightNumber: string) {
         this.flightNumber = flightNumber;
@@ -85,5 +85,4 @@ export class Flight {
     getNumberOfBags(): number {
         return this.numberOfBags;
     }
-   
 }

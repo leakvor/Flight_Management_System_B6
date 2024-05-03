@@ -12,7 +12,6 @@ export class checkIn{
         this.comfirm=comfirm;
         this.passenger=passenger;
     }
-
     //======Add Ticket============
     addTickect(ticket:Ticket){
         this.ticket=ticket

@@ -4,7 +4,7 @@ export class Airline{
     private name:string;
     private aeroplanes:Aeroplane[]=[];
     private baggageHandlers:baggaeHandler[]=[];
-    onstructor(name:string){
+    constructor(name:string){
         this.name = name;
     }
     //======== Add aeroplane to airport===========
