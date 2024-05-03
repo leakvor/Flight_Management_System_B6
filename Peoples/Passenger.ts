@@ -12,8 +12,6 @@ export class Passenger extends Person{
     private bookings:Booking[]=[];
     private baggages:Baggage[]=[];
     private frequenFlyer?:FrequenFlyer;
-    
-    // private bookingReference: string;
     constructor (firstName: string, lastName: string, height: Number, weight: Number, gender: Gender,email: string){
         super(firstName, lastName, height, weight, gender);
         this.email = email;

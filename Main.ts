@@ -22,7 +22,6 @@ import { Manager } from "./Peoples/Manager";
 import { Pilot } from "./Peoples/Pilot";
 import { CoPilot } from "./Peoples/CoPilot";
 import { Controllers } from "./Peoples/Controllers";
-import { FlightsCrew } from "./Peoples/FlightCrew";
 import { FlightAttendent } from "./Peoples/FlightAttendent";
 import { Baggage } from "./Flight/Baggage";
 import { checkIn } from "./Flight/checkIn";
@@ -181,9 +180,15 @@ bookingReference1.addBooking(bookingFlight3);
 //=======CheckIn===================
 const DincheckIn=new checkIn(1,"din02",true,KadinSit);
 
+//=======Add Ticket======
+DincheckIn.addTickect(ticket1);
+
 //========BoardingPass=======
 const boardingPass = new BoardingPass(ticket1, Feburary2022, DincheckIn);
 // console.log(boardingPass);
+
+//========Add boardingPass to flight==========
+flight2TYK.addBoardingPass(boardingPass);
 
 //==========Create Baggage=======
 const kaDinBaggage=new Baggage("GK001",20);

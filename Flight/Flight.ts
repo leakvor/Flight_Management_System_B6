@@ -1,13 +1,13 @@
 import { FlightType } from "../Enums/FlightType";
 import { Gate } from "../Airport/gate";
 import { FlightRoute } from "./FlightRoute";
-import { FlightsCrew } from "../Peoples/FlightCrew";
 import { CoPilot } from "../Peoples/CoPilot";
 import { Chef } from "../Peoples/chef";
 import { Pilot } from "../Peoples/Pilot";
 import { FlightAttendent } from "../Peoples/FlightAttendent";
 import { Passenger } from "../Peoples/Passenger";
 import { Baggage } from "./Baggage";
+import { BoardingPass } from "./BoardingPass"; 
 
 
 export class Flight {
@@ -20,6 +20,7 @@ export class Flight {
     private chef?:Chef ;
     private passengers:Passenger[]=[];
     private numberOfBags: number = 0;
+    private boardingPass:BoardingPass;
 
     constructor(private flightNumber: string) {
         this.flightNumber = flightNumber;
@@ -67,6 +68,10 @@ export class Flight {
     //========Add passenger to flight=========
     addPassenger(passenger:Passenger){
         this.passengers.push(passenger);
+    }
+    //=======Add boardingpass======
+    addBoardingPass(boardingPass:BoardingPass){
+        this.boardingPass=boardingPass;
     }
 
     CountBaggage(baggage: Baggage): void {
